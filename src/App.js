@@ -47,10 +47,8 @@ class App extends React.Component {
     this.setState({ form: { text: '' } });
   }
 
-  handleDeleteClick({ target }) {
-    const note = target.closest('.Note');
-
-    del(`notes/${note.id}`, { text: this.state.form.text })
+  handleDeleteClick(id) {
+    del(`notes/${id}`, { text: this.state.form.text })
       .then((data) => {
         this.setState({ notes: data });
       })
@@ -69,7 +67,7 @@ class App extends React.Component {
                   key={note.id}
                   id={note.id}
                   text={note.text}
-                  onDeleteClick={this.handleDeleteClick}
+                  onDeleteClick={() => this.handleDeleteClick(note.id)}
                 />
               );
             })}
