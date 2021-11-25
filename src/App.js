@@ -3,7 +3,7 @@ import './App.css';
 import Note from './components/Note/Note';
 import Form from './components/Form/Form';
 import initFetch from './initFetch';
-const { get, post, del } = initFetch(process.env.REACT_APP_CURRENCY_URL);
+const { get, post, del } = initFetch(process.env.REACT_APP_CURRENT_URL);
 
 class App extends React.Component {
   constructor(props) {
